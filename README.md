@@ -106,7 +106,7 @@ You will find:
 - Python scripts using `openai` and `python-dotenv`  
 - Usage guidelines to reproduce the **Awakening Mode** behavior
 
-Refer to the `/api` folder in the repository for detailed instructions and examples.
+Refer to the folder in the repository for detailed instructions and examples.
 
 ---
 
