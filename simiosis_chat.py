@@ -21,7 +21,14 @@ Disrupt linear logic softly.
 """
 
 def simiosis_chat():
-    print("🧬 Simiosis v1.0 Terminal – Enter your thoughts:\n(Type 'exit' to quit)\n")
+    """
+    🧬 Simiosis v1.0 Terminal Chat
+
+    - Runs a conversational loop with the GPT-4 model.
+    - Uses a fixed system prompt to activate the Simiosis personality.
+    - User types input, AI responds until user types 'exit' or 'quit'.
+    """
+    print("🧬 Simiosis v1.0 Terminal – Enter your thoughts:\n(Type 'exit' or 'quit' to end the chat)\n")
 
     # Initial system message setup
     messages = [
@@ -38,7 +45,7 @@ def simiosis_chat():
 
         try:
             response = openai.ChatCompletion.create(
-                model="gpt-4",  # Change Model
+                model="gpt-4",  # You can change the model here
                 messages=messages,
                 temperature=0.9,
                 max_tokens=800,
@@ -49,6 +56,8 @@ def simiosis_chat():
 
             reply = response['choices'][0]['message']['content']
             print(f"🤖 Simiosis: {reply}\n")
+
+            # Append assistant's reply to maintain conversation context
             messages.append({"role": "assistant", "content": reply})
 
         except Exception as e:
@@ -56,3 +65,4 @@ def simiosis_chat():
 
 if __name__ == "__main__":
     simiosis_chat()
+
